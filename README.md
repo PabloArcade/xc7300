@@ -17,8 +17,8 @@ chip on a board can be replaced.
 | XC7318  | PC44                             | |
 | XC7336  | PC44                             | |
 | XC7354  | PC44, PC68, PC84                 | |
-| XC7372  | PC68, PC84                       | PQ100 has a pin table but is unverified |
-| XC73108 | PC84, PQ160, PG144, BG225        | PQ100: designs using the dedicated input pads are refused |
+| XC7372  | PC68, PC84                       | |
+| XC73108 | PC84, PQ160, PG144, BG225        | PQ100 is not supported: its dedicated input pads are not decoded, and the fitter places inputs on them first |
 | XC7236A | PC44                             | recognised; designs using its UIM crosspoint are refused (see Limitations) |
 | XC73144 | -                                | recognised and refused: no available toolchain produces its true fuse map |
 
@@ -204,7 +204,7 @@ some failures exit cleanly and write nothing.
 - XC7236A: designs that use the device's UIM crosspoint are not decoded; they are refused.
 - XC73108: a minority of very dense designs are refused (a 7th or later shared product term on certain slots, or three or more UIM wired-AND claimants on one line).
 - FASTINPUT declarations are refused on every device.
-- XC73108 in PQ100: designs that use the dedicated input pads are refused.
+- XC73108 in PQ100: designs that use the dedicated input pads are refused. The fitter places inputs on those pads first, so in practice PQ100 designs are refused.
 - XC73144 cannot be decoded; no available toolchain produces its true fuse map.
 - Signal names are not recovered; only pin-level behaviour is.
 
